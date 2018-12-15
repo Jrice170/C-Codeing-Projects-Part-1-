@@ -2,8 +2,7 @@
 // 9/6/2018
 // File name project_2.cpp
 // Section CS1570  1C 
-// // Instructor: San Young  
-// calculate the risk of a heart attack at the Krusty Korperation
+
 
 
 #include <iostream>
