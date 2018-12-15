@@ -1,0 +1,157 @@
+// Joseph Michael Rice   // class cs1570 section c
+// File main.cpp  // id 12541608 date started 10/12/2018
+// Program a menu with 7 options input a 5 or less digit number
+// enter the base of the number then converts to decimal
+// this program also changes numbers randomly
+
+#include "hw7.h"
+#include <iostream>
+using namespace std;
+#include<cmath>
+#include<cstdlib>
+#include<cmath>
+#include<cstdlib>
+#include<ctime>
+#include<cstring>
+#include<string>
+
+
+int main()
+{
+  
+  const int  key_value = 4;
+  int option;
+  srand(0);
+  int pattys, picks, bacon; // used to fill array as pass by refernce
+  int index_case_1 =0; 
+  burger key_storage[key_value];
+ 
+  bool switch_change[] = {1,1,1};
+  char end_loop; 
+  do
+  {
+    
+    greet_user();
+    cin >> option;
+    
+    if(switch_change[option-1])
+    {
+      
+      switch(option)
+      {
+        
+        case 1:
+        {
+          
+          int number = gen_number(pattys,bacon,picks);
+          bool check = check_number(number,key_storage,key_value);
+          if(!check)
+          {
+            
+            key_storage[index_case_1].m_burger_code = number;
+            key_storage[index_case_1].m_patties = pattys;
+            key_storage[index_case_1].m_bacons = bacon;
+            key_storage[index_case_1].m_pickles = picks;
+            
+            generate_name(pattys,bacon,picks,\
+            key_storage,index_case_1);
+            
+            cout<<key_storage[index_case_1].m_burger_name<<endl;
+            
+            index_case_1++;
+           
+          }
+          else
+          {
+             
+            cout<<"The burger is in the list "<<endl;
+            
+          }
+          
+          
+          switch_truth(switch_change[0],switch_change[1],\
+          switch_change[2],1,1,1);
+          break; 
+          
+        }  
+         
+        case 2:
+        {
+          
+          short_list(key_storage,key_value);
+          print_array(key_storage,key_value);
+          
+          
+          switch_truth(switch_change[0],switch_change[1],\
+          switch_change[2],1,1,1);
+          break;
+          
+        } 
+        
+        case 3:
+        {
+          
+          
+          int number;
+          char end;
+          int index_number;
+          do
+          {
+            cout<<"Enter the number of the burger."<<endl;
+            cin>>number;
+            
+            if (compare(key_storage,number,\
+            key_value,\
+            index_number))
+            {
+              
+              key_storage[index_number].m_burger_code = 0;
+              
+              
+            }
+            else
+            {
+               
+              cout<<"The number is not in array !"<<endl;
+            
+            }
+            cout<<"would you like to quit (y/n) "<<endl;
+            cin >>end;
+          }while(end != 'y');
+          switch_truth(switch_change[0],switch_change[1],\
+          switch_change[2],1,1,1);
+          break; 
+          
+        }
+        case 4:
+        {
+          
+          
+         // quit the program
+          
+         break; 
+        }
+        
+      }
+      
+    } 
+    
+    else
+    {
+        
+       cout<< "You are out of seqence try another option. "<<endl;
+       end_loop = 'N';
+
+    }    
+    if (option == 4)
+    {
+         
+      end_loop = 'y'; 
+            
+    }
+        
+  }while(!(end_loop == 'y'));
+
+  
+}
+  
